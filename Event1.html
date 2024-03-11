@@ -17,6 +17,8 @@
             font-family: 'Helvetica', sans-serif;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
+            /* Enable smooth scrolling */
         }
         
         .bg-white {
@@ -42,13 +44,14 @@
         
         .countdown-bubble {
             position: fixed;
-            bottom: 20px;
+            bottom: 90px;
+            /* Adjusted the position to be higher */
             right: 20px;
             background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             padding: 10px 20px;
             border-radius: 20px;
-            z-index: 1000;
+            z-index: 10000;
             /* Ensure it's above other content */
         }
         /* Event Coordinators Grid */
@@ -132,7 +135,7 @@
                         <a href="#" class="block py-2 px-3 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:bg-transparent md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Event</a>
+                        <a href="#event-information" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:bg-transparent md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Event</a>
                     </li>
                 </ul>
             </div>
@@ -159,7 +162,7 @@
         </div>
 
         <!-- Event Information -->
-        <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+        <div id="event-information" class="bg-white p-6 rounded-lg shadow-lg mb-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Event Information</h2>
             <p class="text-gray-700 mb-4">The event will take place on Mar 13th, 2024.</p>
             <p class="text-gray-700 mb-4">Venue: Engineering Hive (4303).</p>
@@ -236,9 +239,7 @@
         </div>
 
         <!-- Scroll for More Details -->
-        <div class="scroll-for-more">
-            Scroll for more details
-        </div>
+
     </div>
 
     <!-- JavaScript to fetch team count and update button -->
