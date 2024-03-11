@@ -15,6 +15,8 @@
             background-color: #1a202c;
             color: #cbd5e0;
             font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
         }
         
         .bg-white {
@@ -36,10 +38,78 @@
         .bg-blue-600:hover {
             background-color: #2c5282;
         }
+        /* Countdown bubble */
+        
+        .countdown-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            z-index: 1000;
+            /* Ensure it's above other content */
+        }
+        /* Event Coordinators Grid */
+        
+        .coordinators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        /* Individual Coordinator Card */
+        
+        .coordinator-card {
+            background-color: #2d3748;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        /* Coordinator Image */
+        
+        .coordinator-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        /* Coordinator Name */
+        
+        .coordinator-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        /* Coordinator VTU Number */
+        
+        .coordinator-vtu {
+            font-size: 14px;
+        }
+        /* Sticky Registration Button */
+        
+        .sticky-register {
+            position: sticky;
+            bottom: 20px;
+            z-index: 1000;
+        }
+        /* Scroll for More Details */
+        
+        .scroll-for-more {
+            text-align: center;
+            margin-top: 50px;
+            color: #cbd5e0;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Countdown Bubble -->
+    <div id="countdown" class="countdown-bubble"></div>
+
     <!-- Navigation Bar -->
     <nav class="bg-gradient-to-r from-white to-gray-800 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-800">
         <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
@@ -73,16 +143,17 @@
         <!-- Event Image and Header -->
         <div class="mb-8">
             <img src="Solution (1).gif" alt="Event Image" class="w-full h-auto mb-4 rounded-lg shadow-lg">
-            <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-white-300 md:text-5xl lg:text-6xl dark:text-white">Solution <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Sprint-24</mark></h1>
-
-
+            <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-white-300 md:text-5xl lg:text-6xl dark:text-white">
+                Solution <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Sprint-24</mark>
+            </h1>
         </div>
 
         <!-- About the Event -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4">About the Event</h2>
             <p class="text-gray-700 mb-4">The event offers a chance to solve real-world problems using logic. Participants engage with diverse case studies from various industries, crafting innovative solutions through critical thinking. It's a hands-on opportunity to navigate complexities,
-                collaborate with peers, and gain recognition for problem-solving skills. Don't miss out—join us for a journey of learning and discovery!</p>
+                collaborate with peers, and gain recognition for problem-solving skills. Don't miss out—join us for a journey of learning and discovery!
+            </p>
             <p class="text-gray-700 mb-4">Take advantage of this chance to showcase your skills and network with peers in the engineering community.</p>
             <p class="text-gray-700">Prizes will be awarded to the top five pitches.</p>
         </div>
@@ -90,7 +161,7 @@
         <!-- Event Information -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Event Information</h2>
-            <p class="text-gray-700 mb-4">The event will take place on Mar 19th, 2024.</p>
+            <p class="text-gray-700 mb-4">The event will take place on Mar 13th, 2024.</p>
             <p class="text-gray-700 mb-4">Venue: Engineering Hive (4303).</p>
             <p class="text-gray-700 mb-4">The contest will start at 1:30 PM.</p>
             <p class="text-gray-700 mb-4">Half day OD will be provided.</p>
@@ -105,7 +176,7 @@
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Rules</h2>
             <ul class="list-disc list-inside text-gray-700">
                 <li>Presentation Format: Bring your PowerPoint (PPT) presentation.</li>
-                <li>Team Size: Keep it small – 3 members maximum per team</li>
+                <li>Team Size: Keep it small 3 members maximum per team</li>
                 <li>Punctuality: Be on time for your presentation slot</li>
                 <li>Content: Cover key points like problem-solving and market analysis</li>
                 <li>Time: Stick to the time limit.</li>
@@ -118,84 +189,72 @@
         <!-- Event Coordinators Section -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Event Coordinators</h2>
-            <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+            <div class="coordinators-grid">
                 <!-- Coordinator 1 -->
-                <div class="flex items-center space-x-4">
-                    <img src="event_coordinator1.jpg" alt="Event Coordinator 1" class="w-12 h-12 rounded-full">
-                    <div>
-                        <p class="text-gray-700">Name: John Doe</p>
-                        <p class="text-gray-700">VTU Number: VTU123456</p>
-                    </div>
+                <div class="coordinator-card">
+                    <img src="event_coordinator1.jpg" alt="Event Coordinator 1" class="coordinator-image">
+                    <p class="coordinator-name">John Doe</p>
+                    <p class="coordinator-vtu">VTU Number: VTU123456</p>
                 </div>
 
                 <!-- Coordinator 2 -->
-                <div class="flex items-center space-x-4">
-                    <img src="event_coordinator2.jpg" alt="Event Coordinator 2" class="w-12 h-12 rounded-full">
-                    <div>
-                        <p class="text-gray-700">Name: Jane Smith</p>
-                        <p class="text-gray-700">VTU Number: VTU789012</p>
-                    </div>
+                <div class="coordinator-card">
+                    <img src="1675763704577.jpg" alt="Event Coordinator 2" class="coordinator-image">
+                    <p class="coordinator-name">a</p>
+                    <p class="coordinator-vtu">VTU Number: VTU21411</p>
                 </div>
 
                 <!-- Coordinator 3 -->
-                <div class="flex items-center space-x-4">
-                    <img src="event_coordinator3.jpg" alt="Event Coordinator 3" class="w-12 h-12 rounded-full">
-                    <div>
-                        <p class="text-gray-700">Name: Mike Johnson</p>
-                        <p class="text-gray-700">VTU Number: VTU345678</p>
-                    </div>
+                <div class="coordinator-card">
+                    <img src="TTFF1.jpeg.jpg" alt="Event Coordinator 3" class="coordinator-image">
+                    <p class="coordinator-name">Divesh Anand</p>
+                    <p class="coordinator-vtu">VTU Number: VTU21414</p>
                 </div>
 
                 <!-- Coordinator 4 -->
-                <div class="flex items-center space-x-4">
-                    <img src="event_coordinator4.jpg" alt="Event Coordinator 4" class="w-12 h-12 rounded-full">
-                    <div>
-                        <p class="text-gray-700">Name: Emily Brown</p>
-                        <p class="text-gray-700">VTU Number: VTU901234</p>
-                    </div>
+                <div class="coordinator-card">
+                    <img src="eventpranshu.jpg" alt="Event Coordinator 4" class="coordinator-image">
+                    <p class="coordinator-name">Pranshu Chourasia</p>
+                    <p class="coordinator-vtu">VTU Number: VTU21413</p>
                 </div>
 
                 <!-- Coordinator 5 -->
-                <div class="flex items-center space-x-4">
-                    <img src="event_coordinator5.jpg" alt="Event Coordinator 5" class="w-12 h-12 rounded-full">
-                    <div>
-                        <p class="text-gray-700">Name: Alex Johnson</p>
-                        <p class="text-gray-700">VTU Number: VTU567890</p>
-                    </div>
+                <div class="coordinator-card">
+                    <img src="TTFF.jpeg" alt="Event Coordinator 5" class="coordinator-image">
+                    <p class="coordinator-name">Kumar Jeevika</p>
+                    <p class="coordinator-vtu">VTU Number: VTU567890</p>
                 </div>
 
-                <!-- Coordinator 6 -->
-                <div class="flex items-center space-x-4">
-                    <img src="event_coordinator6.jpg" alt="Event Coordinator 6" class="w-12 h-12 rounded-full">
-                    <div>
-                        <p class="text-gray-700">Name: Sarah Williams</p>
-                        <p class="text-gray-700">VTU Number: VTU345678</p>
-                    </div>
-                </div>
+                <!-- Add more coordinators here -->
             </div>
         </div>
 
         <!-- Registration Button -->
-        <div class="mt-8 flex justify-center">
+        <div class="sticky-register mt-8 flex justify-center">
             <a href="#" id="register-btn" class="bg-blue-500 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">Register
                 Now</a>
+        </div>
+
+        <!-- Scroll for More Details -->
+        <div class="scroll-for-more">
+            Scroll for more details
         </div>
     </div>
 
     <!-- JavaScript to fetch team count and update button -->
     <script>
-        < script >
-            window.onload = function() {
-                fetchTeamCount();
-                addPopupEffect();
-            };
+        window.onload = function() {
+            fetchTeamCount();
+            addPopupEffect();
+            startCountdown('Mar 13, 2024 13:30:00', 'countdown');
+        };
 
         function fetchTeamCount() {
             // Your existing code to fetch team count
         }
 
         function addPopupEffect() {
-            const coordinators = document.querySelectorAll('.flex.items-center.space-x-4');
+            const coordinators = document.querySelectorAll('.coordinator-card');
 
             coordinators.forEach((coordinator, index) => {
                 if ((index + 1) % 6 === 0) {
@@ -218,6 +277,31 @@
             if (popup) {
                 popup.remove();
             }
+        }
+
+        function startCountdown(endTime, elementId) {
+            const countdownElement = document.getElementById(elementId);
+
+            function updateCountdown() {
+                const currentTime = new Date().getTime();
+                const distance = new Date(endTime) - currentTime;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.innerHTML = "Event Ended";
+                }
+            }
+
+            updateCountdown(); // Run once to avoid delay
+
+            const countdownInterval = setInterval(updateCountdown, 1000);
         }
     </script>
 </body>
