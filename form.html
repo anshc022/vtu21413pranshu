@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #000000, #0f4c75);
+            /* Gradient background */
+            color: #fff;
+            /* Light text color */
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+        }
+        
+        .registration-form {
+            background-color: rgba(55, 65, 81, 0.8);
+            /* Semi-transparent dark background for the form */
+            color: #fff;
+            /* Light text color for the form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+        
+        .moving-color {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: moving-color 20s linear infinite alternate;
+        }
+        
+        @keyframes moving-color {
+            0% {
+                background-color: #581808;
+            }
+            50% {
+                background-color: #15789f;
+            }
+            100% {
+                background-color: #3b2c09;
+            }
+        }
+        /* Adjust text colors */
+        
+        label,
+        option {
+            color: #d1d5db;
+            /* Darker text color */
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select {
+            background-color: rgba(53, 6, 6, 0.1);
+            /* Lighter color for input fields */
+            color: #fff;
+            /* Light text color for input fields */
+            border-color: #d1d5db;
+            /* Darker border color for input fields */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 py-10">
+    <div class="moving-color"></div>
+    <div class="max-w-md mx-auto bg-transparent rounded p-6 registration-form">
+        <h1 class="text-2xl font-bold mb-6 text-center">Team Registration Form</h1>
+        <form action="https://formspree.io/f/mleqnpae" method="POST">
+            <!-- Team Name -->
+            <div class="mb-4">
+                <label for="team-name" class="block text-sm font-bold mb-2">Team Name</label>
+                <input type="text" id="team-name" name="team-name" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+            </div>
+
+            <!-- Member 1 Details -->
+            <div class="mb-4">
+                <h2 class="text-xl font-bold mb-2">Member 1</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="member1-name" class="block text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="member1-name" name="member1-name" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div>
+                        <label for="member1-vtu" class="block text-sm font-bold mb-2">VTU Number</label>
+                        <input type="text" id="member1-vtu" name="member1-vtu" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div>
+                        <label for="member1-email" class="block text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="member1-email" name="member1-email" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div>
+                        <label for="member1-year" class="block text-sm font-bold mb-2">Year</label>
+                        <select id="member1-year" name="member1-year" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                            <option value="" style="color: #02122b;"></option>
+                            <option value="2" style="color: #02122b;">2nd Year</option>
+                            <option value="3" style="color: #000000;">3rd Year</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 2 Details -->
+            <div class="mb-4">
+                <h2 class="text-xl font-bold mb-2">Member 2</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="member2-name" class="block text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="member2-name" name="member2-name" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div>
+                        <label for="member2-vtu" class="block text-sm font-bold mb-2">VTU Number</label>
+                        <input type="text" id="member2-vtu" name="member2-vtu" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div>
+                        <label for="member2-year" class="block text-sm font-bold mb-2">Year</label>
+                        <select id="member2-year" name="member2-year" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                            <option value="" style="color: #050e1b;"></option>
+                            <option value="2" style="color: #050e1b;">2nd Year</option>
+                            <option value="3" style="color: #010917;">3rd Year</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 3 Details -->
+            <div class="mb-4">
+                <h2 class="text-xl font-bold mb-2">Member 3</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="member3-name" class="block text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="member3-name" name="member3-name" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div>
+                        <label for="member3-vtu" class="block text-sm font-bold mb-2">VTU Number</label>
+                        <input type="text" id="member3-vtu" name="member3-vtu" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div>
+                        <label for="member3-year" class="block text-sm font-bold mb-2">Year</label>
+                        <select id="member3-year" name="member3-year" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300" required>
+                            <option value="" style="color: #020a17;"></option>
+                            <option value="2" style="color: #020a17;">2nd Year</option>
+                            <option value="3" style="color: #04152d;">3rd Year</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const form = event.target;
+            if (!form.checkValidity()) {
+                // If form validation fails, exit the function
+                event.stopPropagation();
+                return;
+            }
+
+            // Construct the form data object
+            const formData = new FormData(form);
+
+            // Define the URL of the backend API endpoint
+            const url = 'https://formspree.io/f/mleqnpae';
+
+            // Define the fetch options
+            const options = {
+                method: 'POST',
+                body: formData
+            };
+
+            // Send the form data to the Formspree endpoint
+            fetch(url, options)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle successful response from Formspree
+                    console.log('Form data sent successfully:', data);
+                    window.location.href = 'success.html';
+                    // Optionally, you can redirect the user to another page or show a success message
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Error sending form data:', error);
+                    // Optionally, you can show an error message to the user
+                });
+        });
+    </script>
+</body>
+
+</html>

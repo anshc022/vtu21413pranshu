@@ -98,6 +98,7 @@
             position: sticky;
             bottom: 20px;
             z-index: 1000;
+            font-size: 14px;
         }
         /* Scroll for More Details */
         
@@ -105,6 +106,34 @@
             text-align: center;
             margin-top: 50px;
             color: #cbd5e0;
+        }
+        /* Sticky WhatsApp Button */
+        /* Sticky WhatsApp Button */
+        /* Sticky WhatsApp Button */
+        
+        .sticky-whatsapp {
+            position: sticky;
+            bottom: 20px;
+            /* Adjust as needed */
+            left: 10px;
+            /* Position on the left side */
+            z-index: 1000;
+        }
+        
+        .sticky-whatsapp a {
+            background-color: rgba(12, 128, 12, 0.941);
+            /* Transparent green color */
+            padding: 17px 9px;
+            /* Adjust padding as needed */
+            font-size: 9px;
+            /* Adjust font size as needed */
+            border-radius: 30px;
+            /* Adjust border radius as needed */
+        }
+        
+        .sticky-whatsapp a:hover {
+            background-color: rgba(0, 128, 0, 0.7);
+            /* Darker transparent green color on hover */
         }
     </style>
 </head>
@@ -158,7 +187,7 @@
                 collaborate with peers, and gain recognition for problem-solving skills. Don't miss out—join us for a journey of learning and discovery!
             </p>
             <p class="text-gray-700 mb-4">Take advantage of this chance to showcase your skills and network with peers in the engineering community.</p>
-            <p class="text-gray-700">Prizes will be awarded to the top five pitches.</p>
+            <p class="text-gray-700">Prizes will be awarded to the top three team and Consolation Prizes also.</p>
         </div>
 
         <!-- Event Information -->
@@ -179,9 +208,9 @@
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Rules</h2>
             <ul class="list-disc list-inside text-gray-700">
                 <li>Presentation Format: Bring your PowerPoint (PPT) presentation.</li>
-                <li>Team Size: Keep it small 3 members maximum per team</li>
-                <li>Punctuality: Be on time for your presentation slot</li>
-                <li>Content: Cover key points like problem-solving and market analysis</li>
+                <li>Team Size: Keep it small, maximum 3 members per team.</li>
+                <li>Punctuality: Be on time for your presentation slot.</li>
+                <li>Content: Cover key points like problem-solving and market analysis.</li>
                 <li>Time: Stick to the time limit.</li>
                 <li>Professionalism: Stay professional during your presentation.</li>
                 <li>Q&A: Be ready for questions from the judges.</li>
@@ -189,6 +218,7 @@
                 <li>Materials: Bring any extra stuff you need.</li>
             </ul>
         </div>
+
         <!-- Event Coordinators Section -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Event Coordinators</h2>
@@ -196,15 +226,15 @@
                 <!-- Coordinator 1 -->
                 <div class="coordinator-card">
                     <img src="event_coordinator1.jpg" alt="Event Coordinator 1" class="coordinator-image">
-                    <p class="coordinator-name">John Doe</p>
-                    <p class="coordinator-vtu">VTU Number: VTU123456</p>
+                    <p class="coordinator-name"> Dr. S. Lalitha </p>
+                    <p class="coordinator-vtu"> Associate Professor & Head / SE(AI&ML) </p>
                 </div>
 
                 <!-- Coordinator 2 -->
                 <div class="coordinator-card">
                     <img src="1675763704577.jpg" alt="Event Coordinator 2" class="coordinator-image">
-                    <p class="coordinator-name">a</p>
-                    <p class="coordinator-vtu">VTU Number: VTU21411</p>
+                    <p class="coordinator-name">Gayathri</p>
+                    <p class="coordinator-vtu">VTU Number: VTU21412</p>
                 </div>
 
                 <!-- Coordinator 3 -->
@@ -232,79 +262,66 @@
             </div>
         </div>
 
+        <!-- WhatsApp Join Button -->
+
         <!-- Registration Button -->
         <div class="sticky-register mt-8 flex justify-center">
-            <a href="#" id="register-btn" class="bg-blue-500 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">Register
-                Now</a>
+            <button id="register-btn" class="bg-blue-500 text-white py-3 px-3 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">Register Now</button>
+            <div class="sticky-whatsapp flex justify-right" style="margin-top: -10px;">
+                <a href="https://chat.whatsapp.com/KNCYvNCmRZm5fkeEHe78v9" class="bg-green-500 text-white py-2 px-4 rounded-full text-base font-semibold shadow-lg hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-105">Join WhatsApp Group</a>
+            </div>
+
+            <script>
+                // Find the register button element
+                const registerButton = document.getElementById('register-btn');
+
+                // Add event listener to the register button
+                registerButton.addEventListener('click', function() {
+                    // Redirect to form.html when the button is clicked
+                    window.location.href = 'form.html';
+                });
+            </script>
+
+
         </div>
 
-        <!-- Scroll for More Details -->
+        <!-- JavaScript to fetch team count and update button -->
+        <script>
+            window.onload = function() {
+                fetchTeamCount();
+                startCountdown('Mar 13, 2024 13:30:00', 'countdown');
+            };
 
-    </div>
-
-    <!-- JavaScript to fetch team count and update button -->
-    <script>
-        window.onload = function() {
-            fetchTeamCount();
-            addPopupEffect();
-            startCountdown('Mar 13, 2024 13:30:00', 'countdown');
-        };
-
-        function fetchTeamCount() {
-            // Your existing code to fetch team count
-        }
-
-        function addPopupEffect() {
-            const coordinators = document.querySelectorAll('.coordinator-card');
-
-            coordinators.forEach((coordinator, index) => {
-                if ((index + 1) % 6 === 0) {
-                    coordinator.addEventListener('click', () => {
-                        const popup = document.createElement('div');
-                        popup.classList.add('popup');
-                        popup.innerHTML = `
-                            <h3>Popup Title</h3>
-                            <p>Popup content goes here.</p>
-                            <button onclick="closePopup()">Close</button>
-                        `;
-                        document.body.appendChild(popup);
-                    });
-                }
-            });
-        }
-
-        function closePopup() {
-            const popup = document.querySelector('.popup');
-            if (popup) {
-                popup.remove();
-            }
-        }
-
-        function startCountdown(endTime, elementId) {
-            const countdownElement = document.getElementById(elementId);
-
-            function updateCountdown() {
-                const currentTime = new Date().getTime();
-                const distance = new Date(endTime) - currentTime;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    countdownElement.innerHTML = "Event Ended";
-                }
+            function fetchTeamCount() {
+                // Your existing code to fetch team count
             }
 
-            updateCountdown(); // Run once to avoid delay
+            function startCountdown(endTime, elementId) {
+                const countdownElement = document.getElementById(elementId);
 
-            const countdownInterval = setInterval(updateCountdown, 1000);
-        }
-    </script>
+                function updateCountdown() {
+                    const currentTime = new Date().getTime();
+                    const distance = new Date(endTime) - currentTime;
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                    if (distance < 0) {
+                        clearInterval(countdownInterval);
+                        countdownElement.innerHTML = "Event Ended";
+                    }
+                }
+
+                updateCountdown(); // Run once to avoid delay
+
+                const countdownInterval = setInterval(updateCountdown, 1000);
+            }
+        </script>
+
 </body>
 
 </html>

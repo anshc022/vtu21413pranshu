@@ -18,6 +18,21 @@
     <style>
         /* Your custom styles here */
         /* Your custom styles here */
+        /* Profile Card */
+        
+        .profile-card {
+            max-width: 300px;
+            background-color: #2d3748;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
         
         .typing-animation {
             font-family: 'Fjalla One', sans-serif;
@@ -133,7 +148,7 @@
                     <h2 class="text-xl font-bold mb-2">Solution Sprint-24</h2>
                     <p class="text-gray-300 mb-4">Event on</p>
                     <p class="text-gray-300 mb-4">13-Mar-2024</p>
-                    <p class="text-gray-300 mb-4">Description of Solution Sprint-24 goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="text-gray-300 mb-4">Description of Solution Sprint-24 goes here. </p>
                     <button id="registerEvent1" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Register</button>
                 </div>
             </div>
@@ -142,8 +157,8 @@
                 <img src="Solution (3).gif" alt="Event 2" class="rounded-t-lg">
                 <div class="p-6 text-white">
                     <h2 class="text-xl font-bold mb-2">Hackathon</h2>
-                    <p class="text-gray-300 mb-4">Description of Hackathon goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Register</button>
+                    <p class="text-gray-300 mb-4">Description of Hackathon goes here. </p>
+                    <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-blue-600">Register close</button>
                 </div>
             </div>
 
@@ -151,22 +166,22 @@
                 <img src="Untitled design (1).gif" alt="Event 3" class="rounded-t-lg">
                 <div class="p-6 text-white">
                     <h2 class="text-xl font-bold mb-2">Event 3</h2>
-                    <p class="text-gray-300 mb-4">Description of Event 3 goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Register</button>
+                    <p class="text-gray-300 mb-4">Description of Event goes here. </p>
+                    <button class="bg-green-500 text-white py-2 px-4 rounded hover:bg-blue-600">Close</button>
                 </div>
             </div>
         </div>
 
         <!-- Profile Section -->
         <section class="container mx-auto mt-1 mb-6">
-            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight">My <span class="underline underline-offset-3 decoration-8 decoration-blue-400">Profile</span></h1>
+            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight"><span class="underline underline-offset-3 decoration-8 decoration-blue-400">Developer</span></h1>
         </section>
 
         <!-- Team Section -->
         <div class="flex items-center justify-center">
             <div class="max-w-xs bg-gray-800 shadow-xl rounded-lg py-3">
                 <div class="photo-wrapper p-2">
-                    <img class="w-32 h-32 rounded-full mx-auto" src="1675763704577.jpg" alt="John Doe">
+                    <img class="w-32 h-32 rounded-full mx-auto" src="eventpranshu.jpg" alt="John Doe">
                 </div>
                 <div class="p-2">
                     <h3 class="text-center text-xl text-white font-medium leading-8">Pranshu Chourasia</h3>
@@ -177,20 +192,20 @@
                         <tbody>
                             <tr>
                                 <td class="px-2 py-2 font-semibold">Address</td>
-                                <td class="px-2 py-2">Chatakpur-3, Dhangadhi Kailali</td>
+                                <td class="px-2 py-2"></td>
                             </tr>
                             <tr>
                                 <td class="px-2 py-2 font-semibold">Phone</td>
-                                <td class="px-2 py-2">+91 9955221114</td>
+                                <td class="px-2 py-2">+91 9999999999</td>
                             </tr>
                             <tr>
                                 <td class="px-2 py-2 font-semibold">Email</td>
-                                <td class="px-2 py-2">@example.com</td>
+                                <td class="px-2 py-2">vtu21413@veltech.edu.in</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="flex justify-center my-3">
-                        <a class="text-gray-400 hover:text-orange-600" aria-label="Visit TrendyMinds LinkedIn" href="https://www.linkedin.com/in/your-profile" target="_blank">
+                        <a class="text-gray-400 hover:text-orange-600" aria-label="Visit TrendyMinds LinkedIn" href="https://www.linkedin.com/in/pranshu-chourasia-615428275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-8">
                                 <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                             </svg>
@@ -200,7 +215,8 @@
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <a class="text-gray-400 inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200" aria-label="Instagram" href="https://www.instagram.com/your-profile" target="_blank">
+                        <a class="text-gray-400 inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200" aria-label="Instagram" href="https://www.instagram.com/pranshu_chaurasi.a?igsh=OHUxNTlsNHFscjBz&utm_source=qr"
+                            target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
                                 <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
                                 <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
