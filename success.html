@@ -4,11 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Success | Team Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <h1>success</h1>
+<body class="bg-gradient-to-r from-black to-blue-900 text-white py-20">
+    <div class="container mx-auto text-center">
+        <h1 class="text-3xl font-bold mb-6">Form Submitted Successfully!</h1>
+        <p class="mb-6">Thank you for registering your team.</p>
+        <p class="mb-6">You are now part of the competition. Join our WhatsApp group to stay updated:</p>
+        <button onclick="window.location.href='https://chat.whatsapp.com/examplegroup'" class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg focus:outline-none">Join WhatsApp Group</button>
+    </div>
+
+    <style>
+        /* Inline styles for the container */
+        
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </body>
 
 </html>

@@ -72,7 +72,7 @@
     <div class="moving-color"></div>
     <div class="max-w-md mx-auto bg-transparent rounded p-6 registration-form">
         <h1 class="text-2xl font-bold mb-6 text-center">Team Registration Form</h1>
-        <form action="https://formspree.io/f/mleqnpae" method="POST">
+        <form id="registrationForm" method="POST" action="https://script.google.com/macros/s/AKfycbwyoBxvOqcc3f_OrunyuQy_RV4CsBLG9uTRq3WwuxSu7NeaI_e0ec_Nkr7T3QJnalC9/exec">
             <!-- Team Name -->
             <div class="mb-4">
                 <label for="team-name" class="block text-sm font-bold mb-2">Team Name</label>
@@ -153,52 +153,29 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" id="submitButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+            <button type="submit" id="submitButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Register</button>
         </form>
     </div>
 
     <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            const form = event.target;
-            if (!form.checkValidity()) {
-                // If form validation fails, exit the function
-                event.stopPropagation();
-                return;
-            }
+        const registrationForm = document.getElementById('registrationForm');
 
-            // Construct the form data object
-            const formData = new FormData(form);
+        registrationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    fetch('https://script.google.com/macros/s/AKfycbwyoBxvOqcc3f_OrunyuQy_RV4CsBLG9uTRq3WwuxSu7NeaI_e0ec_Nkr7T3QJnalC9/exec', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                alert("Thank you! Your form has been submitted successfully.");
+                                window.location.href = 'success.html';
+                            } else {
+                                throw new Error('Network response was not ok.');
+                            }
 
-            // Define the URL of the backend API endpoint
-            const url = 'https://formspree.io/f/mleqnpae';
-
-            // Define the fetch options
-            const options = {
-                method: 'POST',
-                body: formData
-            };
-
-            // Send the form data to the Formspree endpoint
-            fetch(url, options)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Handle successful response from Formspree
-                    console.log('Form data sent successfully:', data);
-                    window.location.href = 'success.html';
-                    // Optionally, you can redirect the user to another page or show a success message
-                })
-                .catch(error => {
-                    // Handle errors
-                    console.error('Error sending form data:', error);
-                    // Optionally, you can show an error message to the user
-                });
-        });
+                        });
     </script>
 </body>
 
