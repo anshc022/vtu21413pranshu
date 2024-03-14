@@ -4,315 +4,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSE Department Vel tech</title>
-    <!-- Include Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Include Owl Carousel CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <!-- Include Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-    <!-- Your additional styles -->
+    <title>Event Page</title>
     <style>
-        /* Your custom styles here */
-        /* Your custom styles here */
-        /* Profile Card */
+        /* Tailwind CSS */
         
-        .profile-card {
-            max-width: 300px;
+        @import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+        /* Custom Styles */
+        
+        body {
+            background-color: #1a202c;
+            color: #cbd5e0;
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            /* Enable smooth scrolling */
+        }
+        /* Your existing CSS styles */
+        
+        .bg-white {
             background-color: #2d3748;
-            padding: 20px;
+        }
+        
+        .text-gray-700 {
+            color: #cbd5e0;
+        }
+        
+        .text-gray-800 {
+            color: #e2e8f0;
+        }
+        
+        .bg-blue-500 {
+            background-color: #4a90e2;
+        }
+        
+        .bg-blue-600:hover {
+            background-color: #2c5282;
+        }
+        /* Countdown bubble */
+        
+        .countdown-bubble {
+            position: fixed;
+            bottom: 90px;
+            /* Adjusted the position to be higher */
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            z-index: 10000;
+            /* Ensure it's above other content */
+        }
+        /* Event Coordinators Grid */
+        
+        .coordinators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        /* Individual Coordinator Card */
+        
+        .coordinator-card {
+            background-color: #2d3748;
+            padding: 10px;
             border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
+        /* Coordinator Image */
         
-        .profile-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        .coordinator-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
+        /* Coordinator Name */
         
-        .typing-animation {
-            font-family: 'Fjalla One', sans-serif;
+        .coordinator-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
+        /* Coordinator VTU Number */
         
-        .font-serif {
-            font-family: 'Fjalla One', sans-serif;
+        .coordinator-vtu {
+            font-size: 14px;
         }
+        /* Sticky Registration Button */
         
-        body.dark {
-            background-color: #1f2937;
-            color: #cbd5e0;
+        .sticky-register {
+            position: sticky;
+            bottom: 20px;
+            z-index: 1000;
+            font-size: 14px;
         }
+        /* Transparent bubble with text */
         
-        .dark .bg-gradient-to-r {
-            background-color: #111827;
-        }
-        
-        .dark .text-white {
+        .transparent-bubble {
+            background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+        /* Provided CSS */
+        
+        .main-item {
+            padding: 10px;
+            background-color: #fff;
+            width: 700px;
         }
         
-        .dark .text-gray-900 {
-            color: #cbd5e0;
+        .background-masker {
+            background-color: #fff;
+            position: absolute;
         }
         
-        .dark .text-gray-500 {
-            color: #9ca3af;
+        .btn-divide-left {
+            top: 0;
+            left: 25%;
+            height: 100%;
+            width: 5%;
         }
         
-        .dark .bg-blue-500 {
-            background-color: #3b82f6;
+        @keyframes placeHolderShimmer {
+            0% {
+                background-position: -800px 0
+            }
+            100% {
+                background-position: 800px 0
+            }
         }
         
-        .dark .hover\:text-gray-200:hover {
-            color: #edf2f7;
+        .animated-background {
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-name: placeHolderShimmer;
+            animation-timing-function: linear;
+            background-color: #f6f7f8;
+            background: linear-gradient(to right, #eeeeee 8%, #bbbbbb 18%, #eeeeee 33%);
+            background-size: 800px 104px;
+            height: 70px;
+            position: relative;
         }
         
-        .dark .hover\:bg-gray-100:hover {
-            background-color: #f3f4f6;
+        .static-background {
+            background-color: #f6f7f8;
+            background-size: 800px 104px;
+            height: 70px;
+            position: relative;
+            margin-bottom: 20px;
         }
         
-        .dark .dark\:text-white {
-            color: #fff;
+        .shared-dom {
+            width: 800px;
+            height: 110px;
         }
         
-        .dark .dark\:bg-gray-400 {
-            background-color: #cbd5e0;
+        .sub-rect {
+            border-radius: 100%;
+            width: 70px;
+            height: 70px;
+            float: left;
+            margin: 20px 20px 20px 0;
         }
         
-        .dark .dark\:hover\:text-white:hover {
-            color: #fff;
+        .pure-background {
+            background-color: #eee;
         }
         
-        .dark .dark\:hover\:bg-gray-700:hover {
-            background-color: #4a5568;
-        }
-        
-        .text-white {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .event-card {
-            background-color: rgba(255, 255, 255, 0.2);
-            /* 20% white color background */
+        .css-dom:empty {
+            width: 280px;
+            height: 220px;
+            border-radius: 6px;
+            box-shadow: 0 10px 45px rgba(0, 0, 0, .2);
+            background-repeat: no-repeat;
+            background-image: radial-gradient(circle 16px, lightgray 99%, transparent 0), linear-gradient(lightgray, lightgray), linear-gradient(lightgray, lightgray), linear-gradient(lightgray, lightgray), linear-gradient(lightgray, lightgray), linear-gradient(#fff, #fff);
+            background-size: 32px 32px, 200px 32px, 180px 32px, 230px 16px, 100% 40px, 280px 100%;
+            background-position: 24px 30px, 66px 30px, 24px 90px, 24px 142px, 0 180px, 0 0;
         }
     </style>
 </head>
 
-<body class="bg-gray-900 text-white">
+<body>
     <!-- Navigation Bar -->
-    <nav class="bg-gradient-to-r from-white to-black p-4-900 to-black-500 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="flex items-center">
-                <img src="Logo-337x109.png" alt="College Events" class="h-12 mr-2">
-                <h1 class="text-white font-bold text-xl"></h1>
+    <nav class="bg-gradient-to-r from-white to-gray-800 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-800">
+        <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="Logo-337x109.png" class="h-12" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold text-white"></span>
             </a>
-            <ul class="flex items-center space-x-4">
-                <li><a href="#" class="text-white hover:text-gray-200">Home</a></li>
-                <li><a href="#" class="text-white hover:text-gray-200">Events</a></li>
-                <li><a href="#" class="text-white hover:text-gray-200">About</a></li>
-                <li><a href="#" class="text-white hover:text-gray-200">Contact</a></li>
-            </ul>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse">
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500">Home</a>
+                    </li>
+                    <li>
+                        <a href="#event-information" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:bg-transparent md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Event</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Owl Carousel -->
-    <section class="relative">
-        <div class="owl-carousel owl-theme">
-            <div class="item"><img src="party (1).png" alt="Slide 1"></div>
-            <div class="item"><img src="party (2).png" alt="Slide 2"></div>
-            <div class="item"><img src="party (3).png" alt="Slide 3"></div>
-        </div>
-    </section>
-
-    <!-- Banner Image -->
-    <div class="bg-cover bg-center relative" style="background-image: url('banner.jpg'); height: 30px;">
-        <div class="banner-overlay"></div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container mx-auto mt-1">
-        <section class="mb-1">
-            <h1 id="departmentTitle" class="mb-4 text-4xl font-extrabold leading-none tracking-tight">CSE <span class="px-2 text-black bg-blue-600 rounded">Department</span></h1>
-            <p id="departmentDescription" class="text-lg font-normal lg:text-xl">Welcome to the Computer Science and Engineering department! We are excited to present these upcoming events</p>
-        </section>
-
-        <!-- Event Listings -->
-        <div class="flex flex-wrap justify-center">
-            <div class="max-w-xs bg-transparent shadow-lg rounded-lg overflow-hidden m-4 event-card hover:shadow-xl transform transition-transform duration-300 ease-in-out hover:scale-105">
-                <img src="Solution (1).gif" alt="Event 1" class="rounded-t-lg">
-                <div class="p-6 text-white">
-                    <h2 class="text-xl font-bold mb-2">Solution Sprint-24</h2>
-                    <p class="text-gray-300 mb-4">Event on</p>
-                    <p class="text-gray-300 mb-4">13-Mar-2024</p>
-                    <p class="text-gray-300 mb-4">Description of Solution Sprint-24 goes here. </p>
-                    <button id="registerEvent1" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Register</button>
-                </div>
-            </div>
-
-            <div class="max-w-xs bg-transparent shadow-lg rounded-lg overflow-hidden m-4 event-card hover:shadow-xl transform transition-transform duration-300 ease-in-out hover:scale-105">
-                <img src="Solution (3).gif" alt="Event 2" class="rounded-t-lg">
-                <div class="p-6 text-white">
-                    <h2 class="text-xl font-bold mb-2">Hackathon</h2>
-                    <p class="text-gray-300 mb-4">Description of Hackathon goes here. </p>
-                    <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-blue-600">Register close</button>
-                </div>
-            </div>
-
-            <div class="max-w-xs bg-transparent shadow-lg rounded-lg overflow-hidden m-4 event-card hover:shadow-xl transform transition-transform duration-300 ease-in-out hover:scale-105">
-                <img src="Untitled design (1).gif" alt="Event 3" class="rounded-t-lg">
-                <div class="p-6 text-white">
-                    <h2 class="text-xl font-bold mb-2">Event 3</h2>
-                    <p class="text-gray-300 mb-4">Description of Event goes here. </p>
-                    <button class="bg-green-500 text-white py-2 px-4 rounded hover:bg-blue-600">Close</button>
-                </div>
-            </div>
+    <div class="container mx-auto px-4 py-8">
+        <!-- Event Image and Header -->
+        <div class="mb-8">
+            <img src="Solution (1).gif" alt="Event Image" class="w-full h-auto mb-4 rounded-lg shadow-lg">
+            <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-white-300 md:text-5xl lg:text-6xl dark:text-white">
+                Solution <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Sprint-24</mark>
+            </h1>
         </div>
 
-        <!-- Profile Section -->
-        <section class="container mx-auto mt-1 mb-6">
-            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight"><span class="underline underline-offset-3 decoration-8 decoration-blue-400">Developer</span></h1>
-        </section>
+        <!-- About the Event -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">About the Event</h2>
+            <p class="text-gray-700 mb-4">Engage in solving real-world problems with logic at our event. Dive into diverse case studies spanning various industries, where you'll exercise critical thinking to craft innovative solutions. It's a hands-on opportunity to navigate complexities,
+                collaborate with peers, and earn recognition for your problem-solving prowess. Don't miss out—join us for a journey of learning and discovery!</p>
+            <p class="text-gray-700 mb-4">Seize this opportunity to showcase your skills and expand your network within the engineering community.</p>
+            <p class="text-gray-700">Prizes will be awarded to the top three teams, along with consolation prizes.</p>
+        </div>
 
-        <!-- Team Section -->
-        <div class="flex items-center justify-center">
-            <div class="max-w-xs bg-gray-800 shadow-xl rounded-lg py-3">
-                <div class="photo-wrapper p-2">
-                    <img class="w-32 h-32 rounded-full mx-auto" src="1675763704577.jpg" alt="John Doe">
+        <!-- Event Information -->
+        <div id="event-information" class="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Event Information</h2>
+            <ul class="text-gray-700">
+                <li>The event will take place on Mar 13th, 2024.</li>
+                <li>Venue: Engineering Hive (4303).</li>
+                <li>The contest will start at 1:30 PM.</li>
+                <li>Half day OD will be provided.</li>
+                <li>Limited Slots: Only the first 15 teams can register.</li>
+            </ul>
+            <p class="text-gray-700">Secure your spot early to avoid missing out on this exciting opportunity!</p>
+        </div>
+
+        <!-- Rules -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Rules</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>This "SolutionSprint-24" is a one-day technical contest focusing on logical analysis and problem-solving skills.</li>
+                <li>Participants, especially those in engineering, tackle real-world case studies using critical thinking.</li>
+                <li>Collaboration is encouraged for innovative solutions.</li>
+                <li>Ethical conduct is required.</li>
+                <li>Solutions must be practical and feasible.</li>
+                <li>Judging considers creativity, feasibility, and presentation.</li>
+                <li>Networking opportunities are available.</li>
+                <li>Pre-registration is necessary.</li>
+            </ul>
+        </div>
+
+        <!-- Event Coordinators Section -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Event Coordinators</h2>
+            <div class="coordinators-grid">
+                <!-- Coordinator 1 -->
+                <div class="coordinator-card">
+                    <img src="maam.jpg" alt="Event Coordinator 1" class="coordinator-image">
+                    <p class="coordinator-name"> Dr. S. Lalitha </p>
+                    <p class="coordinator-vtu"> Associate Professor & Head / CSE(AI&ML) </p>
                 </div>
-                <div class="p-2">
-                    <h3 class="text-center text-xl text-white font-medium leading-8">Pranshu Chourasia</h3>
-                    <div class="text-center text-gray-400 text-xs font-semibold">
-                        <p>Web Developer</p>
-                    </div>
-                    <table class="text-xs my-3 text-gray-400">
-                        <tbody>
-                            <tr>
-                                <td class="px-2 py-2 font-semibold">Address</td>
-                                <td class="px-2 py-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="px-2 py-2 font-semibold">Phone</td>
-                                <td class="px-2 py-2">+91 9999999999</td>
-                            </tr>
-                            <tr>
-                                <td class="px-2 py-2 font-semibold">Email</td>
-                                <td class="px-2 py-2">vtu21413@veltech.edu.in</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="flex justify-center my-3">
-                        <a class="text-gray-400 hover:text-orange-600" aria-label="Visit TrendyMinds LinkedIn" href="https://www.linkedin.com/in/pranshu-chourasia-615428275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-8">
-                                <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-gray-900">
-                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                        <a class="text-gray-400 inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200" aria-label="Instagram" href="https://www.instagram.com/pranshu_chaurasi.a?igsh=OHUxNTlsNHFscjBz&utm_source=qr"
-                            target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-                                <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
-                                <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                                <path d="M16.5 7.5l0 .01"></path>
-                            </svg>
-                        </a>
-                    </div>
+
+                <!-- Coordinator 2 -->
+                <div class="coordinator-card">
+                    <img src="vtu21412.jpg" alt="Event Coordinator 2" class="coordinator-image">
+                    <p class="coordinator-name">Gayathri</p>
+                    <p class="coordinator-vtu">VTU Number: VTU21412</p>
+                </div>
+
+                <!-- Coordinator 3 -->
+                <div class="coordinator-card">
+                    <img src="TTFF1.jpeg.jpg" alt="Event Coordinator 3" class="coordinator-image">
+                    <p class="coordinator-name">Divesh Anand</p>
+                    <p class="coordinator-vtu">VTU Number: VTU21414</p>
+                </div>
+
+                <!-- Coordinator 4 -->
+                <div class="coordinator-card">
+                    <img src="eventpranshu.jpg" alt="Event Coordinator 4" class="coordinator-image">
+                    <p class="coordinator-name">Pranshu Chourasia</p>
+                    <p class="coordinator-vtu">VTU Number: VTU21413</p>
+                </div>
+
+                <!-- Coordinator 5 -->
+                <div class="coordinator-card">
+                    <img src="TTFF.jpeg" alt="Event Coordinator 5" class="coordinator-image">
+                    <p class="coordinator-name">Kumar Jeevika</p>
+                    <p class="coordinator-vtu">VTU Number: VTU567890</p>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="bg-blue-500 text-center py-4 mt-2">
-            <p class="text-white">© 2024 Pranshu Chourasia vtu21413. All rights reserved.</p>
-        </footer>
+        <!-- Transparent bubble with text -->
+        <div class="countdown-bubble transparent-bubble">
+            <p class="text-xl font-semibold">Event Over</p>
+        </div>
 
-        <!-- Include Owl Carousel JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js "></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js "></script>
+        <!-- Registration Button -->
+        <div class="sticky-register mt-8 flex justify-center">
+            <button id="register-btn" class="bg-blue-500 text-white py-3 px-3 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">Register Now</button>
+        </div>
+
         <script>
-            $(document).ready(function() {
-                $('.owl-carousel').owlCarousel({
-                    loop: true,
-                    margin: 20,
-                    nav: true,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    autoplayHoverPause: true,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        768: {
-                            items: 2
-                        },
-                        992: {
-                            items: 3
-                        }
-                    },
-                    navText: ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" /></svg>', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M10 .59 7.41 3.17 15 12 l - 4.58 4.59 L 12 18 l 6 - 6 - 6 - 6 - 1.41 1.41 z " /></svg>'],
-                    dots: true,
-                    dotsEach: true,
-                    responsiveRefreshRate: 200,
-                    lazyLoad: true,
-                    lazyLoadEager: 1
-                });
+            // Find the register button element
+            const registerButton = document.getElementById('register-btn');
 
-                // Function to simulate typing effect
-                function typeWriter(element, text, delay = 100) {
-                    let charIndex = 0;
-                    element.textContent = '';
-                    const typingInterval = setInterval(() => {
-                        element.textContent += text.charAt(charIndex);
-                        charIndex++;
-                        if (charIndex === text.length) {
-                            clearInterval(typingInterval);
-                            setTimeout(() => {
-                                eraseText(element, text);
-                            }, 1000); // Delay before starting erasing
-                        }
-                    }, delay);
-                }
-
-                // Function to simulate erasing effect
-                function eraseText(element, text, delay = 10) {
-                    let charIndex = text.length;
-                    const erasingInterval = setInterval(() => {
-                        element.textContent = text.substring(0, charIndex);
-                        charIndex--;
-                        if (charIndex === 0) {
-                            clearInterval(erasingInterval);
-                            setTimeout(() => {
-                                typeWriter(element, text);
-                            }, 500); // Delay before starting typing again
-                        }
-                    }, delay);
-                }
-
-                // Text to type and erase
-                const textToType = "Welcome to the Computer Science and Engineering department! We are excited to present these upcoming events ";
-
-                // Typing and erasing loop
-                const departmentDescriptionElement = document.getElementById('departmentDescription');
-                typeWriter(departmentDescriptionElement, textToType);
+            // Add event listener to the register button
+            registerButton.addEventListener('click', function() {
+                // Redirect to form.html when the button is clicked
+                window.location.href = 'form.html';
             });
         </script>
-        <script>
-            // JavaScript function to redirect to Event1.html
-            function redirectToEvent1Page() {
-                window.location.href = 'Event1.html';
-            }
-
-            // Add event listener to the Register button
-            document.getElementById('registerEvent1').addEventListener('click', redirectToEvent1Page);
-        </script>
     </div>
+
 </body>
 
 </html>
